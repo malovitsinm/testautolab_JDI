@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite" verbose="1">
+    <test name="JDI DDT MetalsAndColorsTest">
+        <parameter name="MetalAndColorDataProvider"
+                   value="src\main\resources\test_data\ex8_jdi_metalsColorsDataSet.json"/>
+        <classes>
+            <class name="hw8.Task01"/>
+        </classes>
+    </test>
+</suite>
