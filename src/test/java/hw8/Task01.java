@@ -29,7 +29,7 @@ public class Task01 extends TestNGBase {
     }
 
     @Test(dataProvider = "MetalAndColorDataProvider", dataProviderClass = MetalsAndColorsProvider.class)
-    public void metalsAndColorsPageTestDDT(Object entity) {
+    public void metalsAndColorsPageTestDDT(Object entity) { // TODO MetalsAndColorsContent entity, maybe ?
         //1 Login on JDI site as User
         JDITestSite.indexPage.header.login(PITER);
 
