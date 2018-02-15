@@ -29,16 +29,16 @@ public class Task01 extends TestNGBase {
     }
 
     @Test(dataProvider = "MetalAndColorDataProvider", dataProviderClass = MetalsAndColorsProvider.class)
-    public void metalsAndColorsPageTestDDT(Object entity) {
+    public void metalsAndColorsPageTestDDT(MetalsAndColorsContent entity) {
         //1 Login on JDI site as User
         JDITestSite.indexPage.header.login(PITER);
 
         //2 Open Metals & Colors page by Header menu
-        JDITestSite.indexPage.header.pagesMenu.select(METALS_COLORS.pageName);
+        JDITestSite.indexPage.header.pagesMenu.select(METALS_COLORS.toString());
         JDITestSite.metalsAndColorsPage.shouldBeOpened();
 
         //3 Fill form Metals & Colors by data below:
-        JDITestSite.metalsAndColorsPage.metalsAndColorsForm.fill((MetalsAndColorsContent) entity);
+        JDITestSite.metalsAndColorsPage.metalsAndColorsForm.fill(entity);
 
         //4 Submit form Metals & Colors
         JDITestSite.metalsAndColorsPage.metalsAndColorsForm.submit();
