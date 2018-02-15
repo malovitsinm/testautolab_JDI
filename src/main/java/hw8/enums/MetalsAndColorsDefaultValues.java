@@ -10,5 +10,5 @@ public enum MetalsAndColorsDefaultValues {
     ELEMENTS(null),
     VEGETABLES("Salad");
 
-    public final String value;
+    private final String value;
 }

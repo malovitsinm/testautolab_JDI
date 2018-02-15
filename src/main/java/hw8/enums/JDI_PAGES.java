@@ -9,6 +9,6 @@ public enum JDI_PAGES {
     SERVICE("Service"),
     METALS_COLORS("Metals & Colors");
 
-    public final String pageName;
+    private final String pageName;
 
 }
