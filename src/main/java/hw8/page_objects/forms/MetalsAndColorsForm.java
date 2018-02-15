@@ -20,20 +20,36 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsContent> {
     private RadioButtons evenNumbers;
 
     @FindBy(css = "#elements-checklist label")
-    private CheckList natureElements;
+    private CheckList natureElements
+            = new CheckList() {
+        @Override
+        protected void selectListAction(String... names) {
+            if (names.length != 0) super.selectListAction(names);
+        }
+    };
 
     @JDropdown(root = @FindBy(css = ".colors"),
             list = @FindBy(css = "li"),
             value = @FindBy(css = ".filter-option")
     )
-    private Dropdown colors;
+    private Dropdown colors = new Dropdown() {
+        @Override
+        protected void selectAction(String name) {
+            if (!name.isEmpty()) super.selectAction(name);
+        }
+    };
 
     @JComboBox(root = @FindBy(css = ".metals"),
             list = @FindBy(css = "li"),
             value = @FindBy(css = ".filter-option"),
             expand = @FindBy(css = ".caret")
     )
-    private ComboBox metals;
+    private ComboBox metals = new ComboBox() {
+        @Override
+        protected void selectAction(String name) {
+            if (!name.isEmpty()) super.selectAction(name);
+        }
+    };
 
     @FindBy(css = "#salad-dropdown button")
     private Label saladLabel;
@@ -50,17 +66,9 @@ public class MetalsAndColorsForm extends Form<MetalsAndColorsContent> {
             oddNumbers.select(entity.getSummary().get(0).toString());
             evenNumbers.select(entity.getSummary().get(1).toString());
         }
-        if (!entity.getColor().isEmpty()) colors.select(entity.getColor());
-        if (!entity.getMetals().isEmpty()) metals.select(entity.getMetals());
-        if (!entity.getElements().isEmpty())
-            natureElements.check(entity.getElements().toArray(new String[entity.getElements().size()]));
-        /*NOTE TO REVIEWER:
-        * It seems that clear() method simply does not seem to work on any of CheckLists
-        * (Neither then called explicitly or implicitly from check() method).
-        * Thus the default option is unchecked manually. If there's a better workaround please inform me.
-        * I wonder if this trouble links to the way I've wrote lists' locators.
-        * */
-//        vegetables.clear();
+        natureElements.check(entity.getElements().toArray(new String[entity.getElements().size()]));
+        colors.select(entity.getColor());
+        metals.select(entity.getMetals());
         if (!entity.getVegetables().isEmpty()) {
             saladLabel.click();
             vegetables.check(saladLabel.getText());
