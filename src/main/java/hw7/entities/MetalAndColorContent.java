@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class MetalAndColorContent {
 
-    static public MetalAndColorContent EXPECTED_METALS_AND_COLORS = new MetalAndColorContent(
+    final static public MetalAndColorContent EXPECTED_METALS_AND_COLORS = new MetalAndColorContent(
             new Tuple<>(3, 8),
             "Red",
             "Selen",
