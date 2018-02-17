@@ -11,19 +11,19 @@ public class ResultLogAssembler {
     public static List<String> assembleMetalsAndColorsResult(MetalsAndColorsContent entity) {
         return Arrays.asList(
                 entity.getSummary().isEmpty() ?
-                        SUMMARY.value :
+                        SUMMARY.toString() :
                         Integer.toString(entity.getSummary().get(0) + entity.getSummary().get(1)),
                 entity.getElements().isEmpty() ?
-                        ELEMENTS.value :
+                        ELEMENTS.toString() :
                         entity.getElements().toString().replaceAll("\\[|\\]", ""),
                 entity.getColor().isEmpty() ?
-                        COLOR.value :
+                        COLOR.toString() :
                         entity.getColor(),
                 entity.getMetals().isEmpty() ?
-                        METAL.value :
+                        METAL.toString() :
                         entity.getMetals(),
                 entity.getVegetables().isEmpty() ?
-                        VEGETABLES.value :
+                        VEGETABLES.toString() :
                         entity.getVegetables().toString().replaceAll("\\[|\\]", "")
         );
     }

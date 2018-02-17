@@ -11,4 +11,9 @@ public enum JDI_PAGES {
 
     private final String pageName;
 
+    @Override
+    public String toString() {
+        return this.pageName;
+    }
+
 }

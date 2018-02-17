@@ -11,4 +11,9 @@ public enum MetalsAndColorsDefaultValues {
     VEGETABLES("Salad");
 
     private final String value;
+
+    @Override
+    public String toString() {
+        return this.value;
+    }
 }
