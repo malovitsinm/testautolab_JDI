@@ -28,7 +28,7 @@ public class Task01 extends TestNGBase {
         JDITestSite.indexPage.header.login(PITER);
 
         //2 Open Metals & Colors page by Header menu
-        JDITestSite.indexPage.header.pagesMenu.select(METALS_COLORS.pageName);
+        JDITestSite.indexPage.header.pagesMenu.select(METALS_COLORS);
         JDITestSite.metalsAndColorsPage.shouldBeOpened();
 
         //3 Fill form Metals & Colors by data below:
